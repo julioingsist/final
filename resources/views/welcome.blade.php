@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -78,7 +78,8 @@
                 <div class="caption">
                     <h6>Prestamos / facil/ Rapido /seguro </h6>
                     <h1>somos <span>PrestaMaxx</span></h1>
-                    <a class="btn btn-transparent" href="#">inicia sesion</a><a class="btn btn-light" href="#">Registrate</a>
+                    <a class="btn btn-transparent" href="{{url('/login')}}">inicia sesion</a>
+                    <a class="btn btn-light" href="#">Registrate</a>
                 </div>
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
@@ -149,23 +150,6 @@
                                 <h3>Historial crediticio sano.</h3>
                                 <p>Si no cuentas con el, nosotros te lo creamos.</p>
                             </div>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div class="media-left"><span class="icon-ok"></span></div>
-                            <div class="media-body">
-                                <h3>Photoshop</h3>
-                                <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                            </div>
-
-                        </div>
-                        <div class="col-md-4">
-                            <div class="media-left"><span class="icon-wallet"></span></div>
-                            <div class="media-body">
-                                <h3>Money Saver</h3>
-                                <p>Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.</p>
-                            </div>
-
                         </div>
                     </div>
                 </div>
