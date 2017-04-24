@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ config('app.locale') }}">
 
 <head>
 
@@ -56,7 +56,7 @@
                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                     <div class="col-md-8 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
-                            <li><a href="#owl-hero" class="page-scroll">Home</a></li>
+                            <li><a href="#owl-hero" class="page-scroll">Inicio</a></li>
                             <li><a href="#services" class="page-scroll">Services</a></li>
                             <li><a href="#portfolio" class="page-scroll">Works</a></li>
                             <li><a href="#team" class="page-scroll">About</a></li>
@@ -78,8 +78,8 @@
                 <div class="caption">
                     <h6>Prestamos / facil/ Rapido /seguro </h6>
                     <h1>somos <span>PrestaMaxx</span></h1>
-                    <a class="btn btn-transparent" href="{{url('/login')}}">inicia sesion</a>
-                    <a class="btn btn-light" href="#">Registrate</a>
+                    <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
+                    <a class="btn btn-light" href="{{url('/register')}}">Regístrate</a>
                 </div>
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
@@ -130,7 +130,7 @@
                         <div class="media-left"><span class="icon-calendar"></span></div>
                         <div class="media-body">
                             <h3>Tener entre 18 y 55 años</h3>
-                            <p>tienes que contar con la mayoria de edad.</p>
+                            <p>tienes que contar con la mayoría de edad.</p>
                         </div>
 
                     </div>
@@ -138,7 +138,7 @@
                         <div class="media-left"><span class="icon-picture"></span></div>
                         <div class="media-body">
                             <h3>Contar con INE vigente</h3>
-                            <p>Es uno de los requisitos mas iportantes</p>
+                            <p>Es uno de los requisitos más importantes</p>
                         </div>
 
                     </div>
