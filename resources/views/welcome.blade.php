@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
-
+ 
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -25,7 +25,7 @@
     <link href="plugins/animate.css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <!-- Icons Font -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,16 +51,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="img/logo/logo.png" class="img-responsive" alt="logo"></a>
+                    <a class="navbar-brand" href="#"><img src="img/logo/logo1.png" height="95" width ="95" class="img-responsive" alt="logo"></a>
                 </div>
                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                     <div class="col-md-8 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
                             <li><a href="#owl-hero" class="page-scroll">Inicio</a></li>
-                            <li><a href="#services" class="page-scroll">Services</a></li>
-                            <li><a href="#portfolio" class="page-scroll">Works</a></li>
-                            <li><a href="#team" class="page-scroll">About</a></li>
-                            <li><a href="#contact" class="page-scroll">Contact</a></li>
+                            <li><a href="#services" class="page-scroll">Requisitos</a></li>
+                        
+                            <li><a href="#team" class="page-scroll">Equipo</a></li>
+                            <li><a href="#testimonials" class="page-scroll">Testimonios</a></li>
+                            <li><a href="#contact" class="page-scroll">Contactanos</a></li>
                         </ul>
                     </div>
                     <div class="social-media hidden-sm hidden-xs">
@@ -84,16 +85,18 @@
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
                 <div class="caption">
-                    <h6>Branding / Design / Creativty</h6>
-                    <h1>Creative <span>Design</span></h1>
-                    <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a>
+                    <h6>Prestamos / facil/ Rapido /seguro </h6>
+                    <h1>somos <span>PrestaMaxx</span></h1>
+                    <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
+                    <a class="btn btn-light" href="{{url('/register')}}">Regístrate</a>
                 </div>
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
                 <div class="caption">
-                    <h6>Branding / Design / Creativty</h6>
-                    <h1>Clean <span>Code</span></h1>
-                    <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a>
+                    <h6>Prestamos / facil/ Rapido /seguro </h6>
+                    <h1>somos <span>PrestaMaxx</span></h1>
+                    <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
+                    <a class="btn btn-light" href="{{url('/register')}}">Regístrate</a>
                 </div>
             </div>
         </div>
@@ -106,7 +109,7 @@
             <h2>Bienvenidos a <span>PrestaMaxx</span></h2>
             <hr class="sep">
             <p>Obten tu prestamo, facil, rapido y seguro</p>
-            <img class="img-responsive center-block wow fadeInUp" data-wow-delay=".3s" src="img/welcome/logo.png" alt="logo">
+            <img class="img-responsive center-block wow fadeInUp" data-wow-delay=".3s" src="img/logo/logo1.png" alt="logo">
         </div>
     </section>
 
@@ -157,178 +160,19 @@
         </div>
     </section>
 
-    <!-- Portfolio
-	============================================= -->
-    <section id="portfolio">
-        <div class="container-fluid">
-            <h2>Our Work</h2>
-            <hr class="sep">
-            <p>Showcase Your Amazing Work With Us</p>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a class="portfolio-box" href="img/portfolio/1.jpg" data-lightbox="image-1" data-title="Your caption">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="1">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/2.jpg" class="portfolio-box" data-lightbox="image-2" data-title="Your caption">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="2">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/3.jpg" class="portfolio-box" data-lightbox="image-3" data-title="Your caption">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="3">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/4.jpg" class="portfolio-box" data-lightbox="image-4" data-title="Your caption">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="4">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/5.jpg" class="portfolio-box" data-lightbox="image-5" data-title="Your caption">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="5">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/6.jpg" class="portfolio-box" data-lightbox="image-6" data-title="Your caption">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="6">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Work Process
-	============================================= -->
-    <section id="work-process">
-        <div class="container">
-            <h2>Work Process</h2>
-            <hr class="sep">
-            <p>What Happen In The Background</p>
-            <div class="row wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-lg-3">
-                    <span class="icon-chat"></span>
-                    <h4>1.Discuss</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-circle-compass"></span>
-                    <h4>2.Sketch</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-browser"></span>
-                    <h4>3.Make</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-global"></span>
-                    <h4>4.Publish</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Some Fune Facts
-	============================================= -->
-    <section id="fun-facts">
-        <div class="container">
-            <h2>Some Fun Facts </h2>
-            <hr class="light-sep">
-            <p>Fun Facts</p>
-            <div class="row wow fadeInUp" data-wow-delay=".3s">
-                <div class="col-lg-3">
-                    <span class="icon-happy"></span>
-                    <h2 class="number timer">367</h2>
-                    <h4>Happy Clients</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-trophy"></span>
-                    <h2 class="number timer">150</h2>
-                    <h4>Project Done</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-wine"></span>
-                    <h2 class="number timer">121</h2>
-                    <h4>Glass Of Wine</h4>
-                </div>
-                <div class="col-lg-3">
-                    <span class="icon-documents"></span>
-                    <h2 class="number timer">10000</h2>
-                    <h4>Lines Of Code</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Some Fune Facts
-	============================================= -->
+    <!-- nuestro equipo
+    ============================================= -->
     <section id="team">
         <div class="container">
-            <h2>Our Team</h2>
+            <h2> Nuestro equipo</h2>
             <hr class="sep">
-            <p>Designers Behind This Work</p>
+            <p></p>
             <div class="row wow fadeInUp" data-wow-delay=".3s">
                 <div class="col-md-4">
                     <div class="team">
-                        <img class="img-responsive center-block" src="img/team/MariaDoe.jpg" alt="1">
-                        <h4>Maria Doe</h4>
-                        <p>Designer</p>
+                        <img class="img-responsive center-block" height="150" width="150" src="img/team/irma.jpg" alt="1" >
+                        <h4>Irma Gomez</h4>
+                        <p>Diseñadora</p>
                         <div class="team-social-icons">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -338,9 +182,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team">
-                        <img class="img-responsive center-block" src="img/team/JasonDoe.jpg" alt="2">
-                        <h4>Jason Doe</h4>
-                        <p>Developer</p>
+                        <img class="img-responsive center-block" src="img/team/cristian.jpg" alt="2">
+                        <h4>Cristian Ibarra</h4>
+                        <p>Desarrollador</p>
                         <div class="team-social-icons">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -350,9 +194,20 @@
                 </div>
                 <div class="col-md-4">
                     <div class="team">
-                        <img class="img-responsive center-block" src="img/team/MikeDoe.jpg" alt="3">
-                        <h4>Mike Doe</h4>
-                        <p>Photographer</p>
+                        <img class="img-responsive center-block" src="img/team/julio.jpg" alt="3">
+                        <h4>Julio Castro</h4>
+                        <p>Desarrollador</p>
+                        <div class="team-social-icons">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                    <div class="team">
+                        <img class="img-responsive center-block" src="img/team/mario.jpg" alt="4">
+                        <h4>Mario Miranda</h4>
+                        <p>Desarrollador</p>
                         <div class="team-social-icons">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -363,85 +218,78 @@
             </div>
         </div>
     </section>
-    <!-- Testimonials
-	============================================= -->
+    <!-- Testimonios
+    ============================================= -->
     <section id="testimonials">
         <div class="container">
-            <h2>Testimonials</h2>
+            <h2>Testimonios</h2>
             <hr class="light-sep">
-            <p>What Clients Say About Us</p>
+            <p>lo que nuestros clientes dicen de nosotros</p>
             <div id="owl-testi" class="owl-carousel owl-theme">
                 <div class="item">
                     <div class="quote">
                         <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so 
-good and neat, every detail has been taken care these team are realy amazing and talented! I will 
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+                        <h5>Exelente servicio, rapido, efectivo.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
                     </div>
                 </div>
                 <div class="item">
                     <div class="quote">
                         <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so 
-good and neat, every detail has been taken care these team are realy amazing and talented! I will 
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+                        <h5>Estoy impresionado.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
                     </div>
                 </div>
                 <div class="item">
                     <div class="quote">
                         <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so 
-good and neat, every detail has been taken care these team are realy amazing and talented! I will 
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+                        <h5>El mejor servicio de prestamos que e provado.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Contact Us
-	============================================= -->
+    <!-- contactanos
+    ============================================= -->
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>Contactanos</h2>
             <hr class="sep">
-            <p>Get In Touch</p>
+            <p>quejas y mejoras</p>
             <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Name" placeholder="Name">
+                        <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Email" placeholder="Email">
+                        <input type="text" class="form-control" id="Correo" placeholder="Correo">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Mensaje"></textarea>
                     </div>
-                    <a href="#" class="btn-block">Send</a>
+                    <a href="{{url('/index')}}" class="btn-block">Enviar</a>
                 </form>
             </div>
         </div>
     </section>
-    <!-- Google Map
-	============================================= -->
-    <div id="map"></div>
+    
     <!-- Footer
-	============================================= -->
+
+    ============================================= -->
     <footer>
         <div class="container">
-            <h1>Rise</h1>
+            <h1>PrestaMaxx</h1>
             <div class="social">
                 <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                 <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                 <a href="#"><i class="fa fa-dribbble fa-2x"></i></a>
             </div>
-            <h6>&copy; 2015 Rise.Development By BootstrapDev</h6>
+            <h6>&copy; 2017 PrestaMaxx </h6>
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap-assets/js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
