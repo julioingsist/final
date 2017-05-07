@@ -302,7 +302,7 @@
     <script src="plugins/Lightbox/dist/js/lightbox.min.js"></script>
     <script src="plugins/WOW/dist/wow.min.js"></script>
     <!-- GOOGLE MAP -->
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/google-maps.js"></script>
 </body>
 
 </html>
