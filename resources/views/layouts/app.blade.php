@@ -51,11 +51,11 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Inicia sesión</a></li>
-                            <li><a href="{{ route('register') }}">Regístrate</a></li>
+                            <li><a href="{{ route('register') }}">Regístrar</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->nombre }} <span class="caret"></span>
+                                    {{ Auth::user()->usuario }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

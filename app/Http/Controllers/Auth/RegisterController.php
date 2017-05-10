@@ -62,10 +62,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        return dd(auth());
+        
+        if (auth()->user()->tipo == 1){
+            $tipo = 2;
+        }
+        else {
+            $tipo = 3;
+        }    
+      
         return User::create([
-            'name' => $data['usuario'],
+            'usuario' => $data['usuario'],
             'email' => $data['email'],
             'password' => Hash::make(str_random(8)),
+            'tipo' => $tipo,
         ]);
     }
 }
