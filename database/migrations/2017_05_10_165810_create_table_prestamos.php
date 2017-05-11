@@ -20,8 +20,9 @@ class CreateTablePrestamos extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('restrict');
             $table->integer('estatus');
-            $table->integer('tipo');
-            $table->binary('comprobante_domicilio');
+            $table->integer('ingreso_mensual');
+            $table->integer('tipo_interes');
+            $table->string('comprobante_domicilio');
             $table->decimal('importe_solicitado',18 , 4);
             $table->decimal('importe_autorizado',18 , 4);
             $table->decimal('interes',18 , 4);
@@ -39,6 +40,6 @@ class CreateTablePrestamos extends Migration
      */
     public function down()
     {
-        //
+        dropIfExists('prestamos');
     }
 }

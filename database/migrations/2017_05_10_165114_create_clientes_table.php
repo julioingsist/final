@@ -29,7 +29,7 @@ class CreateClientesTable extends Migration
             $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('restrict');
             $table->integer('estado_id')->unsigned();
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('restrict');
-            $table->binary('foto')->nullable();
+            $table->string('foto')->nullable();
             $table->integer('estado_civil_id')->unsigned();
             $table->foreign('estado_civil_id')->references('id')->on('estados_civiles')->onDelete('restrict');
             $table->integer('usuario_id')->unsigned();
@@ -46,6 +46,6 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
-        //
+        dropIfExists('clientes');
     }
 }

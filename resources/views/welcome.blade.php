@@ -75,21 +75,21 @@
             </div>
         </nav>
         <div id="owl-hero" class="owl-carousel owl-theme">
-            <div class="item" style="background-image: url(img/sliders/Slide.jpg)">
+            <div class="item" style="background-image: url(img/sliders/1.jpg)">
                 <div class="caption">
                     <h6>Préstamos / Fácil/ Rápido /Seguro </h6>
                     <h1>Somos <span>PrestaMaxx</span></h1>
                     <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
                 </div>
             </div>
-            <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
+            <div class="item" style="background-image: url(img/sliders/2.jpg)">
                 <div class="caption">
                     <h6>Préstamos / Fácil/ Rápido /Seguro </h6>
                     <h1>Somos <span>PrestaMaxx</span></h1>
                     <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
                 </div>
             </div>
-            <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
+            <div class="item" style="background-image: url(img/sliders/3.jpg)">
                 <div class="caption">
                     <h6>Préstamos / Fácil/ Rápido /Seguro </h6>
                     <h1>Somos <span>PrestaMaxx</span></h1>

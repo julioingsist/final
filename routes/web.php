@@ -14,3 +14,4 @@
 Route::get('/','WelcomeController@index');
 Route::get('/home','HomeController@home');
 Auth::routes();
+Route::get('/prestamo/solicitar','PrestamosController@solicitar');
