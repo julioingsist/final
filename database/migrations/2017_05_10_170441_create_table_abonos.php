@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateTableAbonos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('abonos', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('usuario', 30);
-            $table->string('email', 100);
-            $table->unique('email');
-            $table->string('password', 100);
-            $table->integer('tipo');
+            $table->datetime('fecha');
+            $table->integer('prestamo_id')->unsigned();
+            $table->foreign('prestamo_id')->references('id')->on('prestamos')->onDelete('restrict');
+            $table->decimal('importe',18 , 4);
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 
@@ -32,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        
+        //
     }
 }

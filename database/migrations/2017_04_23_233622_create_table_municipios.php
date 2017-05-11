@@ -19,8 +19,7 @@ class CreateTableMunicipios extends Migration
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade');
             $table->integer('clave')->unsigned();
             $table->string('nombre');
-            $table->timestamps();
-        });
+          });
     }
 
     /**

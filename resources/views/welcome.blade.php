@@ -77,26 +77,23 @@
         <div id="owl-hero" class="owl-carousel owl-theme">
             <div class="item" style="background-image: url(img/sliders/Slide.jpg)">
                 <div class="caption">
-                    <h6>Prestamos / facil/ Rapido /seguro </h6>
-                    <h1>somos <span>PrestaMaxx</span></h1>
+                    <h6>Préstamos / Fácil/ Rápido /Seguro </h6>
+                    <h1>Somos <span>PrestaMaxx</span></h1>
                     <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
-                    <a class="btn btn-light" href="{{url('/register')}}">Regístrate</a>
                 </div>
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
                 <div class="caption">
-                    <h6>Prestamos / facil/ Rapido /seguro </h6>
-                    <h1>somos <span>PrestaMaxx</span></h1>
+                    <h6>Préstamos / Fácil/ Rápido /Seguro </h6>
+                    <h1>Somos <span>PrestaMaxx</span></h1>
                     <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
-                    <a class="btn btn-light" href="{{url('/register')}}">Regístrate</a>
                 </div>
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
                 <div class="caption">
-                    <h6>Prestamos / facil/ Rapido /seguro </h6>
-                    <h1>somos <span>PrestaMaxx</span></h1>
+                    <h6>Préstamos / Fácil/ Rápido /Seguro </h6>
+                    <h1>Somos <span>PrestaMaxx</span></h1>
                     <a class="btn btn-transparent" href="{{url('/login')}}">Inicia sesión</a>
-                    <a class="btn btn-light" href="{{url('/register')}}">Regístrate</a>
                 </div>
             </div>
         </div>
@@ -108,7 +105,7 @@
         <div class="container">
             <h2>Bienvenidos a <span>PrestaMaxx</span></h2>
             <hr class="sep">
-            <p>Obten tu prestamo, facil, rapido y seguro</p>
+            <p>Obten tu préstamo, fécil, rápido y seguro</p>
             <img class="img-responsive center-block wow fadeInUp" data-wow-delay=".3s" src="img/logo/logo1.png" alt="logo">
         </div>
     </section>
@@ -119,21 +116,21 @@
         <div class="container">
             <h2>Requisitos</h2>
             <hr class="light-sep">
-            <p>Obten tu credito con : </p>
+            <p>Obten tu crédito con : </p>
             <div class="services-box">
                 <div class="row wow fadeInUp" data-wow-delay=".3s">
                     <div class="col-md-4">
                         <div class="media-left"><span class="icon-flag"></span></div>
                         <div class="media-body">
                             <h3>Ser mexicano o mexicana</h3>
-                            <p>Al ser una empreza 100 % mexicana creada para mexicanos como tu.</p>
+                            <p>Al ser una empresa 100 % mexicana creada para mexicanos como tú.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="media-left"><span class="icon-calendar"></span></div>
                         <div class="media-body">
                             <h3>Tener entre 18 y 55 años</h3>
-                            <p>tienes que contar con la mayoría de edad.</p>
+                            <p>Tienes que contar con la mayoría de edad.</p>
                         </div>
 
                     </div>
@@ -151,7 +148,7 @@
                             <div class="media-left"><span class="icon-ok"></span></div>
                             <div class="media-body">
                                 <h3>Historial crediticio sano.</h3>
-                                <p>Si no cuentas con el, nosotros te lo creamos.</p>
+                                <p>Si no cuentas con él, nosotros te lo creamos.</p>
                             </div>
                         </div>
                     </div>
@@ -207,7 +204,7 @@
                     <div class="team">
                         <img class="img-responsive center-block" src="img/team/mario.jpg" alt="4">
                         <h4>Mario Miranda</h4>
-                        <p>Desarrollador</p>
+                        <p>Tester</p>
                         <div class="team-social-icons">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
