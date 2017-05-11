@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Solicitud de Préstamo</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}"> {{ csrf_field() }}
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data"> {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="cantidad" class="col-md-4 control-label">Cantidad a solicitar</label>
@@ -36,6 +36,15 @@
                             <label for="comprobante_ingresos" class="col-md-4 control-label">Identificación oficial</label>
                             <div class="col-md-6">
                                 <input id="comprobante_ingresos" type="file" class="form-control" name="comprobante_ingresos" value="">
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="tipo_interes" class="col-md-4 control-label">Tipo de Interés</label>
+                            <div class="col-md-6">
+                                <select name="tipo_interes" class="form-control" >
+                                    <option value="1">Fijo</option>
+                                    <option value="2">Variable</option>
+                                </select>
                             </div>
                         </div>    
                         <div class="form-group">

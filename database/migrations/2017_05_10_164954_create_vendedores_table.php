@@ -29,7 +29,7 @@ class CreateVendedoresTable extends Migration
             $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('restrict');
             $table->integer('estado_id')->unsigned();
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('restrict');
-            $table->binary('foto')->nullable();
+            $table->string('foto')->nullable();
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('restrict');
             $table->timestamps();
