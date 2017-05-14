@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -6,7 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Solicitud de Préstamo</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data"> {{ csrf_field() }}
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/prestamo/guardarSolicitud') }}" enctype="multipart/form-data"> 
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="cantidad" class="col-md-4 control-label">Cantidad a solicitar</label>
@@ -17,7 +19,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="comprobante_domicilio" class="col-md-4 control-label">Comprobante de domicilio</label>
                             <div class="col-md-6">
-                                <input id="comprobante" type="file" class="form-control" name="comprobante" value="" required>
+                                <input id="comprobante" type="file" class="form-control" name="comprobante" value="" >
                             </div>
                         </div>                            
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
