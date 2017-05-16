@@ -34,7 +34,6 @@ class CreateClientesTable extends Migration
             $table->foreign('estado_civil_id')->references('id')->on('estados_civiles')->onDelete('restrict');
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('restrict');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

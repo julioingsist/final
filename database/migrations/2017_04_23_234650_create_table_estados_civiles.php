@@ -26,5 +26,6 @@ class CreateTableEstadosCiviles extends Migration
      */
     public function down()
     {
+        
     }
 }

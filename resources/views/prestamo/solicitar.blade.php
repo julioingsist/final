@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Solicitud de Préstamo</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/prestamo/guardarSolicitud') }}" enctype="multipart/form-data"> 
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/prestamo/guardar') }}" enctype="multipart/form-data"> 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

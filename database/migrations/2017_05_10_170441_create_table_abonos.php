@@ -19,7 +19,8 @@ class CreateTableAbonos extends Migration
             $table->datetime('fecha');
             $table->integer('prestamo_id')->unsigned();
             $table->foreign('prestamo_id')->references('id')->on('prestamos')->onDelete('restrict');
-            $table->decimal('importe',18 , 4);
+            $table->decimal('importe_capital',18 , 4);
+            $table->decimal('importe_intereses',18 , 4);
             $table->rememberToken();
             $table->timestamps();
         });

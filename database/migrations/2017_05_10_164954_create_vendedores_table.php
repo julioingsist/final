@@ -43,6 +43,6 @@ class CreateVendedoresTable extends Migration
      */
     public function down()
     {
-        //
+        dropIfExists('clientes');
     }
 }

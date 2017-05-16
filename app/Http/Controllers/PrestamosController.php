@@ -22,9 +22,7 @@ class PrestamosController extends Controller
 
     public function guardarSolicitud(Request $datos)
     {
-        return dd($datos);
-    	$cliente=Cliente::where('usuario_id',auth()->user()->id);
-    	$prestamo=new Prestamo();
+        $prestamo=new Prestamo();
     	$prestamo->estatus=1;
     	$prestamo->cliente_id=$cliente->id;
     	$prestamo->importe_solicitado=$datos->input('importe');

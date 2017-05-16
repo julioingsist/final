@@ -23,6 +23,7 @@ class CreateTablePrestamos extends Migration
             $table->integer('ingreso_mensual');
             $table->integer('tipo_interes');
             $table->string('comprobante_domicilio');
+            $table->string('identificacion_oficial');
             $table->decimal('importe_solicitado',18 , 4);
             $table->decimal('importe_autorizado',18 , 4);
             $table->decimal('interes',18 , 4);
