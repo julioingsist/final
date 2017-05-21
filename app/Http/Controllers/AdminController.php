@@ -23,8 +23,8 @@ class AdminController extends Controller
     		$ruta = $vendedor->foto;   
     	}
     	else{
-    		$cliente = Cliente::where('usuario_id',$usuario->id);
-    		$ruta = $vendedor->foto;   	
+    		$cliente = Cliente::findWhere('usuario_id',$usuario->id);
+    		$ruta = $cliente->foto;   	
     	}
     	return $ruta;
     }
