@@ -13,7 +13,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
 
-    
+    <link rel="icon" type="image/ico" href="{{asset('favicon.ico')}}">
     <!-- Bootstrap Css -->
     <link href="bootstrap-assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Style -->
