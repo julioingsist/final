@@ -11,7 +11,7 @@ class PrestamosController extends Controller
 {
     public function solicitar()
     {
-    	return view('prestamo.solicitar');
+        return view('prestamo.solicitar');
     }
 
     public function autorizar()
@@ -20,16 +20,15 @@ class PrestamosController extends Controller
         return view('prestamo.autorizar',compact('prestamos'));
     }
 
-    public function guardarSolicitud(Request $datos)
+    public function guardar(Request $datos)
     {
-        $prestamo=new Prestamo();
-    	$prestamo->estatus=1;
-    	$prestamo->cliente_id=$cliente->id;
-    	$prestamo->importe_solicitado=$datos->input('importe');
-    	$prestamo->importe_autorizado=0;
-    	$prestamo->tipo_interes=$datos->$datos->input('tipo_interes');
-    	$prestamo->interes=0;
-    	$prestamo->total=$datos->$datos->input('importe');
-    	$prestamo->saldo=$datos->$datos->input('importe');
+        $prestamo=Prestamo::guardar($datos);
+        return back();
+    }
+
+    public function autorizarPrestamo($id)
+    {
+        $prestamo=Prestamo::autorizar($id);
+        return back();
     }
 }

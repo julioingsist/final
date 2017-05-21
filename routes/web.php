@@ -16,4 +16,6 @@ Route::get('/home','HomeController@home');
 Auth::routes();
 Route::get('/prestamo/solicitar','PrestamosController@solicitar');
 Route::get('/prestamo/autorizar','PrestamosController@autorizar');
-Route::post('/prestamo/guardar','PrestamosController@guardarSolicitud');
+Route::post('/prestamo/guardar','PrestamosController@guardar');
+Route::get('/prestamo/autorizar','PrestamosController@autorizar');
+Route::post('/prestamo/autorizarPrestamo/{id}','PrestamosController@autorizarPrestamo');
