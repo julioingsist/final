@@ -17,9 +17,9 @@ class PrestamosController extends Controller
 
     public function autorizar()
     {
-        $prestamos=Prestamo::all();
+        $prestamos=Prestamo::autorizar();
         $ruta=AdminController::index();
-        return view('prestamo.autorizar',compact('prestamos','ruta'));
+        return view('prestamo.porAutorizar',compact('prestamos','ruta'));
     }
 
     public function guardar(Request $datos)
@@ -30,7 +30,7 @@ class PrestamosController extends Controller
 
     public function autorizarPrestamo($id)
     {
-        $prestamo=Prestamo::autorizar($id);
+        $prestamo=Prestamo::autorizarPrestamo($id);
         return back();
     }
 }

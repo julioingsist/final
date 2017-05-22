@@ -54,7 +54,6 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-
             <br />
 
             <!-- sidebar menu -->
@@ -62,12 +61,18 @@
               <div class="menu_section">
                 <h3>Menú</h3>
                 <ul class="nav side-menu">
+                  @if (Auth::user()->tipo==1 or Auth::user()->tipo==2)                       
                   <li><a><i class="fa fa-clone"></i>Catálogos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/home') }}">Clientes</a></li>
-                      <li><a href="{{ url('/home') }}">Vendedores</a></li>
+
+                      <li><a href="{{ url('/consultarClientes') }}">Clientes</a></li>
+                      @if (Auth::user()->tipo==1) 
+                        <li><a href="{{ url('/consultarVendedores') }}">Vendedores</a></li>
+                      @endif
                     </ul>
                   </li>
+                  @endif
+                  @if (Auth::user()->tipo==2 or Auth::user()->tipo==3)                       
                   <li><a><i class="fa fa-edit"></i> Acciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url('/prestamo/solicitar') }}">Solicitar Préstamo</a></li>
@@ -75,11 +80,16 @@
                       <li><a href="{{ url('/home') }}">Registrar Abono</a></li>
                     </ul>
                   </li>
+                  @endif
                   <li><a><i class="fa fa-table"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/home') }}">Cobranza</a></li>
-                      <li><a href="{{ url('/home') }}">Ganancias</a></li>
-                      <li><a href="{{ url('/home') }}">Estado de Cuenta</a></li>
+                      @if (Auth::user()->tipo==1 or Auth::user()->tipo==2)
+                        <li><a href="{{ url('/home') }}">Cobranza</a></li>
+                        <li><a href="{{ url('/home') }}">Ganancias</a></li>
+                      @endif  
+                      @if (Auth::user()->tipo==3)
+                        <li><a href="{{ url('/home') }}">Estado de Cuenta</a></li>
+                      @endif  
                     </ul>
                   </li>
               </div>

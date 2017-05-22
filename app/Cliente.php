@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Cliente extends Model
 {
     protected $table = "clientes";
+    CONST ADMIN = 1;
+    CONST VENDEDOR = 2;
+    CONST CLIENTE = 3;
 
     public static function guardar(Request $datos)
     {
@@ -22,10 +26,12 @@ class Cliente extends Model
     	$cliente->colonia=$datos->input('colonia');
     	$cliente->ciudad=$datos->input('ciudad');
     	$cliente->municipio->input('municipio');
-    	$cliente->estado->input('estado')
+    	$cliente->estado->input('estado');
     	$cliente->foto=$datos->input('foto');
     	$cliente->estado_civil_id->input('estado_civil');
     	$cliente->usuario_id->$usuario->id;
+        $vendedor=Vendedor::where('usuario_id', '=', Auth()->user()->id)->first();
+        $cliente->vendedor_id=$vendedor->id;
  		$cliente->save();
  		return $cliente;
     }
@@ -42,11 +48,31 @@ class Cliente extends Model
     	$cliente->numero_exterior=$datos->input('numero_interior');
     	$cliente->colonia=$datos->input('colonia');
     	$cliente->ciudad=$datos->input('ciudad');
-    	$cliente->municipio_id->input('municipio');
-    	$cliente->estado_id->input('estado');
+    	$cliente->municipio->input('municipio');
+    	$cliente->estado->input('estado');
     	$cliente->foto=$datos->input('foto');
     	$cliente->estado_civil_id->input('estado_civil');
     	$cliente->save();
     	return $cliente;
+    }
+
+    public static function consultar()
+    {
+        $usuario=auth()->user();
+        if ($usuario->tipo == Cliente::ADMIN){
+            $clientes=DB::table('clientes')
+            ->join('users', 'clientes.usuario_id', '=', 'users.id')
+            ->select('users.usuario', 'users.email','clientes.*')
+            ->get();
+        }
+        else{
+            $vendedor=Vendedor::where('usuario_id','=',$usuario->id)->first();
+            $clientes=DB::table('clientes')
+            ->join('users', 'clientes.usuario_id', '=', 'users.id')
+            ->select('users.usuario', 'users.email','clientes.*')
+            ->where('vendedores.id', '=', $vendedor->id)
+            ->get();
+        }
+        return $clientes;
     }
 }

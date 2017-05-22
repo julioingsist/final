@@ -25,13 +25,12 @@ class CreateVendedoresTable extends Migration
             $table->string('numero_interior')->nullable();
             $table->string('colonia')->default('');
             $table->string('ciudad')->default('');
-            $table->integer('municipio_id')->unsigned();;
-            $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('restrict');
-            $table->integer('estado_id')->unsigned();
-            $table->foreign('estado_id')->references('id')->on('estados')->onDelete('restrict');
+            $table->string('municipio');
+            $table->string('estado');
             $table->string('foto')->nullable();
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('restrict');
+            $table->integer('estatus');
             $table->timestamps();
         });
     }
@@ -43,6 +42,6 @@ class CreateVendedoresTable extends Migration
      */
     public function down()
     {
-        dropIfExists('clientes');
+        dropIfExists('vendedores');
     }
 }

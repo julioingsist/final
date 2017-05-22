@@ -47,4 +47,10 @@ class Vendedor extends Model
         $vendedor->save();
         return $vendedor;
     }
+
+    public static function consultar()
+    {
+        $vendedores=Vendedor::all();
+        return $vendedores;
+    }
 }

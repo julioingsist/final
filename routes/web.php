@@ -21,3 +21,6 @@ Route::post('/prestamo/autorizarPrestamo/{id}','PrestamosController@autorizarPre
 Route::get('/admin','AdminController@index');
 Auth::routes();
 Route::get('/logout','Auth\LoginController@logout');
+Route::get('/consultarClientes','ClientesController@consultarClientes');
+Route::get('/consultarVendedores','VendedoresController@consultarVendedores');
+Route::get('/consultarClientes','ClientesController@consultarClientes');

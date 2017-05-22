@@ -25,15 +25,16 @@ class CreateClientesTable extends Migration
             $table->string('numero_interior')->nullable();
             $table->string('colonia')->default('');
             $table->string('ciudad')->default('');
-            $table->integer('municipio_id')->unsigned();;
-            $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('restrict');
-            $table->integer('estado_id')->unsigned();
-            $table->foreign('estado_id')->references('id')->on('estados')->onDelete('restrict');
+            $table->string('municipio');
+            $table->string('estado');
             $table->string('foto')->nullable();
             $table->integer('estado_civil_id')->unsigned();
             $table->foreign('estado_civil_id')->references('id')->on('estados_civiles')->onDelete('restrict');
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('restrict');
+            $table->integer('vendedor_id')->unsigned();
+            $table->foreign('vendedor_id')->references('id')->on('vendedores')->onDelete('restrict');
+            $table->integer('estatus');
             $table->timestamps();
         });
     }
@@ -41,7 +42,7 @@ class CreateClientesTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return void
+     * @return voidn
      */
     public function down()
     {

@@ -29,4 +29,11 @@ class ClientesController extends Controller
     	$cliente=Cliente::actualizar($datos,$id);
     	return back();
     }
+
+    public function consultarClientes()
+    {
+        $ruta=AdminController::index();
+        $clientes=Cliente::consultar();
+        return view('cliente.catalogoClientes',compact('clientes','ruta'));
+    }
 }

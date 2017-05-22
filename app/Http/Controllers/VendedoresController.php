@@ -29,5 +29,10 @@ class VendedoresController extends Controller
         return back();
     }
 
-    
+    public static function consultarVendedores()
+    {
+        $ruta=AdminController::index();
+        $vendedores=Vendedor::consultar();
+        return view('vendedor.catalogoVendedores',compact('ruta','vendedores'));    
+    }
 }
