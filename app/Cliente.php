@@ -23,6 +23,7 @@ class Cliente extends Model
     	$cliente->calle=$datos->input('calle');
     	$cliente->numero_exterior=$datos->input('numero_exterior');
     	$cliente->numero_exterior=$datos->input('numero_interior');
+        $cliente->telefono=$datos->input('telefono');
     	$cliente->colonia=$datos->input('colonia');
     	$cliente->ciudad=$datos->input('ciudad');
     	$cliente->municipio->input('municipio');

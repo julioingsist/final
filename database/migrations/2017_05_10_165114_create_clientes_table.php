@@ -23,6 +23,7 @@ class CreateClientesTable extends Migration
             $table->string('calle');
             $table->string('numero_exterior');
             $table->string('numero_interior')->nullable();
+            $table->string('telefono', 10);
             $table->string('colonia')->default('');
             $table->string('ciudad')->default('');
             $table->string('municipio');

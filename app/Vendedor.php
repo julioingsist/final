@@ -12,13 +12,14 @@ class Vendedor extends Model
     { 
         $usuario=RegisterController::create($datos);
         $vendedor=new Vendedor();
-        $vendedor->apellido_paterno=$datos->input('apellido_paterno');
         $vendedor->nombre=$datos->input('nombre');
+        $vendedor->apellido_paterno=$datos->input('apellido_paterno');
         $vendedor->apellido_materno=$datos->input('apellido_materno');
         $vendedor->fecha_nacimiento=$datos->input('fecha_nacimiento');
         $vendedor->calle=$datos->input('calle');
         $vendedor->numero_exterior=$datos->input('numero_exterior');
         $vendedor->numero_exterior=$datos->input('numero_interior');
+        $vendedor->telefono=$datos->input('telefono');
         $vendedor->colonia=$datos->input('colonia');
         $vendedor->ciudad=$datos->input('ciudad');
         $vendedor->municipio->input('municipio');

@@ -5,12 +5,11 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Catálogo de Vendedores  <a href="{{ url('/prestamo/autorizarPrestamo/{id}') }}" type="button" class="btn btn-xs btn-primary">Nuevo
+                    <h2>Catálogo de Vendedores  <a href="{{ url('/vendedor/registrar') }}" type="button" class="btn btn-xs btn-primary">Nuevo
                                 </a></h2> 
 
                     <div class="clearfix"></div>
                   </div>
-
                   <div class="x_content">
                     <div class="table-responsive">
                       <table class="table table-striped jambo_table bulk_action">

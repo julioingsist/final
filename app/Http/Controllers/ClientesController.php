@@ -10,7 +10,8 @@ class ClientesController extends Controller
 {
     public function registrar()
     {
-    	return view('cliente.registrar');
+        $ruta=AdminController::index();
+    	return view('cliente.registrar', compact('ruta'));
     }
     
     public function guardar(Request $datos)
@@ -33,7 +34,7 @@ class ClientesController extends Controller
     public function consultarClientes()
     {
         $ruta=AdminController::index();
-        $clientes=Cliente::consultar();
-        return view('cliente.catalogoClientes',compact('clientes','ruta'));
+        $clientes=Cliente::consultar(); 
+        return view('cliente.catalogoClientes', compact('clientes','ruta'));
     }
 }

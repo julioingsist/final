@@ -10,7 +10,8 @@ class VendedoresController extends Controller
 {
     public function registrar()
     {
-        return view('vendedor.registrar');
+        $ruta=AdminController::index();
+        return view('vendedor.registrar', compact('ruta'));
     }
     
     public function modificarDatos($id)
