@@ -15,11 +15,11 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">Id </th>
-                            <th class="column-title">Nombre Completo </th>
-                            <th class="column-title">Fecha de Nacimiento </th>
-                            <th class="column-title">Status </th>
-                            <th class="column-title">Estado Civil </th>
+                            <th class="column-title">ID</th>
+                            <th class="column-title">Nombre Completo</th>
+                            <th class="column-title">Correo Electrónico</th>
+                            <th class="column-title">Estatus</th>
+                            <th class="column-title">Teléfono</th>
                             <th class="column-title no-link last"><span class="nobr">Acción</span>
                             </th>
                             <th class="bulk-actions" colspan="7">
@@ -35,15 +35,18 @@
                         @foreach($vendedores as $v)
                           <tr class="even pointer">
                             <td class=" ">{{ $v->id }}</td>
-                            <td class=" ">{{ $v->nombre }}</td>
-                            <td class=" ">{{ $v->cliente }}</td>
-                            <td class=" ">{{ $v->status }}</td>
-                            <td class=" ">{{ $v->importe_solicitado }}</td>
+                            <td class=" ">{{ $v->usuario  }}</td>
+                            <td class=" ">{{ $v->email }}</td>
+                            <td class=" ">@if ($v->estatus==1) Activo @else Inactivo @endif  </td>
+                            <td class=" ">{{ $v->telefono }}</td>
                             <td>
-                                <a href="{{ url('/prestamo/autorizarPrestamo/{id}') }}" type="button" class="btn btn-xs btn-success">Autorizar
+                            @if ($v->estatus==0)
+                                <a href="{{ url('/vendedor/habilitar/{$v->id}') }}" type="button" class="btn btn-xs btn-success">Habilitar
                                 </a>
-                                <a href="{{ url('/prestamo/rechazar/{id}') }}" type="button" class="btn btn-xs btn-danger" >Rechazar
+                            @else    
+                                <a href="{{ url('/vendedor/deshabilitar/{$v->id}') }}" type="button" class="btn btn-xs btn-danger" >Deshabilitar
                                 </a>
+                            @endif
                             </td>
                           </tr>
                          @endforeach 

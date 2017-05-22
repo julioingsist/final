@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Cliente;
-use App\Http\Controllers\RegisterController;
+use Session;
 
 class ClientesController extends Controller
 {
@@ -16,7 +17,16 @@ class ClientesController extends Controller
     
     public function guardar(Request $datos)
     {
-    	$cliente=Cliente::guardar($datos);
+    	$validator=RegisterController::validator($datos->all());
+        if ($validator->fails())
+        {
+            Session::flash('mensaje', $validator->getMessageBag());
+            return back();
+        }     
+        $array=Cliente::guardar($datos);
+        $password=array_pop($array);
+        $cliente=array_pop($array);    
+       Session::flash('mensaje', 'Cliente '.$cliente->nombre.' guardado exitosamente con la contraseña '.$password);
         return back();
     }
 

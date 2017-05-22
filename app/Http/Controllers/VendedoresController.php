@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use RegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Vendedor;
+use Session;
 
 class VendedoresController extends Controller
 {
@@ -21,10 +22,20 @@ class VendedoresController extends Controller
 
     public static function guardar(Request $datos)
     { 
-        $vendedor=Vendedor::guardar($datos);
+        $validator=RegisterController::validator($datos->all());
+        if ($validator->fails())
+        {
+            Session::flash('mensaje', $validator->getMessageBag());
+            return back();
+        }     
+        $array=Vendedor::guardar($datos);
+        $password=array_pop($array);
+        $vendedor=array_pop($array);    
+       Session::flash('mensaje', 'Vendedor '.$vendedor->nombre.' guardado exitosamente con la contraseña '.$password);
+        return back();
     }
 
-    public function actualizar(Request $datos,$id)
+    public static function actualizar(Request $datos,$id)
     {
         $vendedor=Vendedor::actualizar($datos,$id);
         return back();

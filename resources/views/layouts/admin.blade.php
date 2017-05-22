@@ -75,9 +75,13 @@
                   @if (Auth::user()->tipo==2 or Auth::user()->tipo==3)                       
                   <li><a><i class="fa fa-edit"></i> Acciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/prestamo/solicitar') }}">Solicitar Préstamo</a></li>
-                      <li><a href="{{ url('/prestamo/autorizar') }}">Autorizar Préstamo</a></li>
-                      <li><a href="{{ url('/home') }}">Registrar Abono</a></li>
+                      @if (Auth::user()->tipo==3)                    
+                        <li><a href="{{ url('/prestamo/solicitar') }}">Solicitar Préstamo</a></li>
+                      @endif
+                      @if (Auth::user()->tipo==2)                        
+                        <li><a href="{{ url('/prestamo/autorizar') }}">Autorizar Préstamo</a></li>
+                        <li><a href="{{ url('/home') }}">Registrar Abono</a></li>
+                      @endif    
                     </ul>
                   </li>
                   @endif
@@ -116,8 +120,12 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">Mi Perfil</a></li>
-                    <li><a href="javascript:;">Ayuda</a></li>
+                    @if (Auth::user()->tipo==2)
+                      <li><a href="{{url('/vendedor/editar')}}/{{Auth::user()->id}}">Mi Perfil</a></li>
+                    @endif
+                    @if (Auth::user()->tipo==3)
+                      <li><a href="{{url('/cliente/editar')}}/{{Auth::user()->id}}">Mi Perfil</a></li>
+                    @endif  
                     <li>
                       <a href="{{route('logout')}}">
                         <i class="fa fa-sign-out pull-right"></i>

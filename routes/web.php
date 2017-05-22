@@ -23,5 +23,7 @@ Route::get('/logout','Auth\LoginController@logout');
 Route::get('/consultarClientes','ClientesController@consultarClientes');
 Route::get('/consultarVendedores','VendedoresController@consultarVendedores');
 Route::get('/vendedor/registrar','VendedoresController@registrar');
+Route::post('/vendedor/guardar','VendedoresController@guardar');
 Route::get('/cliente/registrar','ClientesController@registrar');
+Route::post('/cliente/guardar','ClientesController@guardar');
 

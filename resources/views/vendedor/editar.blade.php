@@ -6,16 +6,12 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                @if(Session::has('mensaje'))
-                      {{Session::get('mensaje')}}
-                  @endif
                   <div class="x_title">
-                    <h2>Nuevo Cliente </h2>
+                    <h2>Nuevo Vendedor </h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form class="form-horizontal form-label-left" novalidate action="{{ url('/cliente/guardar')}}" method="POST">
-                    {{ csrf_field() }} 
+                    <form class="form-horizontal form-label-left" novalidate action="{{ url('vendedor/guardar')}}">
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
                         </label>
@@ -44,11 +40,27 @@
                           <input id="email" type="email" name="email" data-validate-length-range="5,100" class="optional form-control col-md-7 col-xs-12" required="required" placeholder="Ej. usuario@gmail.com">
                         </div>
                       </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Fecha de nacimiento <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                          <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                          <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                        </div> 
+                      </div>  
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telefono">Teléfono 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="tel" id="telefono" name="telefono"  data-validate-length-range="7,10" class="form-control col-md-7 col-xs-12" placeholder="Ej. 6671634589">
+                        </div>
+                      </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
                           <button id="send" type="submit" class="btn btn-success">Aceptar</button>
-                          <a href="{{url('/home')}}" type="button" class="btn btn-danger">Cancelar</a>
+                          <button type="submit" class="btn btn-danger">Cancelar</button>
                         </div>
                       </div>
                     </form>

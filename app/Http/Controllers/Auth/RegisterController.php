@@ -49,10 +49,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public static function validator(array $data)
     {
         return Validator::make($data, [
-            'usuario' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
         ]);
     }
@@ -63,19 +62,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    public static function create(array $data)
     {
-        if (auth()->user()->tipo == ADMIN){
-            $tipo = VENDEDOR;
+        if (auth()->user()->tipo == RegisterController::ADMIN){
+            $tipo = RegisterController::VENDEDOR;
         }
         else {
-            $tipo = CLIENTE;
+            $tipo = RegisterController::CLIENTE;
         }    
-      
+        
         return User::create([
-            'usuario' => $data['nombre'],
+            'usuario' => $data['nombre']." ".$data['apellido_paterno']." ".$data['apellido_materno'] ,
             'email' => $data['email'],
-            'password' => Hash::make(str_random(8)),
+            'password' => bcrypt($data['password']),
             'tipo' => $tipo,
         ]);
     }
