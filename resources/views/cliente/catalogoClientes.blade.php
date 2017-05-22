@@ -39,10 +39,10 @@
                             <td class=" ">{{ $c->id }}</td>
                             <td class=" ">{{ $c->usuario }}</td>
                             <td class=" ">{{ $c->fecha_nacimiento }}</td>
-                            <td class=" ">{{ $c->status }}</td>
-                            <td class=" ">{{ $c->importe_solicitado }}</td>
+                            <td class=" ">{{ $c->estatus }}</td>
+                            <td class=" ">{{ $c->estado_civil }}</td>
                             <td>
-                            @if ($c->status==0)
+                            @if ($c->estatus==0)
                                 <a href="{{ url('/cliente/habilitar/{id}') }}" type="button" class="btn btn-xs btn-success">Habilitar
                                 </a>
                             @else    
