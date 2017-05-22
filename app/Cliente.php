@@ -21,8 +21,8 @@ class Cliente extends Model
     	$cliente->numero_exterior=$datos->input('numero_interior');
     	$cliente->colonia=$datos->input('colonia');
     	$cliente->ciudad=$datos->input('ciudad');
-    	$cliente->municipio_id->input('municipio');
-    	$cliente->estado_id->input('estado')
+    	$cliente->municipio->input('municipio');
+    	$cliente->estado->input('estado')
     	$cliente->foto=$datos->input('foto');
     	$cliente->estado_civil_id->input('estado_civil');
     	$cliente->usuario_id->$usuario->id;

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    CONST ADMIN = 1;
+    CONST VENDEDOR = 2;
+    CONST CLIENTE = 3;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -62,11 +65,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if (auth()->user()->tipo == 1){
-            $tipo = 2;
+        if (auth()->user()->tipo == ADMIN){
+            $tipo = VENDEDOR;
         }
         else {
-            $tipo = 3;
+            $tipo = CLIENTE;
         }    
       
         return User::create([

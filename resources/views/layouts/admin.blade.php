@@ -11,23 +11,23 @@
     <title>PrestaMaxx</title>
 
     <!-- Bootstrap -->
-    <link href="plantilla/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="plantilla/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="plantilla/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
     <!-- iCheck -->
-    <link href="plantilla/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
 	
     <!-- bootstrap-progressbar -->
-    <link href="plantilla/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="plantilla/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="{{ asset('plantilla/vendors/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="plantilla/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="plantilla/build/css/custom.min.css" rel="stylesheet">
+    <link href="{{ asset('plantilla/build/css/custom.min.css') }}" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"> <span>PrestaMaxx</span></a>
+              <a href="{{url('/home')}}" class="site_title"> <span>PrestaMaxx</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -70,14 +70,13 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Acciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/home') }}">Solicitar Préstamo</a></li>
+                      <li><a href="{{ url('/prestamo/solicitar') }}">Solicitar Préstamo</a></li>
+                      <li><a href="{{ url('/prestamo/autorizar') }}">Autorizar Préstamo</a></li>
                       <li><a href="{{ url('/home') }}">Registrar Abono</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/home') }}">Clientes</a></li>
-                      <li><a href="{{ url('/home') }}">Abonos</a></li> 
                       <li><a href="{{ url('/home') }}">Cobranza</a></li>
                       <li><a href="{{ url('/home') }}">Ganancias</a></li>
                       <li><a href="{{ url('/home') }}">Estado de Cuenta</a></li>
@@ -143,45 +142,46 @@
     </div>
 
     <!-- jQuery -->
-    <script src="plantilla/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="{{ asset('plantilla/vendors/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script src="plantilla/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('plantilla/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
-    <script src="plantilla/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="{{ asset('plantilla/vendors/fastclick/lib/fastclick.js') }}"></script>
     <!-- NProgress -->
-    <script src="plantilla/vendors/nprogress/nprogress.js"></script>
+    <script src="{{ asset('plantilla/vendors/nprogress/nprogress.js') }}"></script>
     <!-- Chart.js -->
-    <script src="plantilla/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="{{ asset('plantilla/vendors/Chart.js/dist/Chart.min.js') }}"></script>
     <!-- gauge.js -->
-    <script src="plantilla/vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="{{ asset('plantilla/vendors/gauge.js/dist/gauge.min.js') }}"></script>
     <!-- bootstrap-progressbar -->
-    <script src="plantilla/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="{{ asset('plantilla/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
     <!-- iCheck -->
-    <script src="plantilla/vendors/iCheck/icheck.min.js"></script>
+    <script src="{{ asset('plantilla/vendors/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
-    <script src="plantilla/vendors/skycons/skycons.js"></script>
+    <script src="{{ asset('plantilla/vendors/skycons/skycons.js') }}"></script>
     <!-- Flot -->
-    <script src="plantilla/vendors/Flot/jquery.flot.js"></script>
-    <script src="plantilla/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="plantilla/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="plantilla/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="plantilla/vendors/Flot/jquery.flot.resize.js"></script>
+    <script src="{{ asset('plantilla/vendors/Flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/Flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/Flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/Flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/Flot/jquery.flot.resize.js') }}"></script>
     <!-- Flot plugins -->
-    <script src="plantilla/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="plantilla/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="plantilla/vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="{{ asset('plantilla/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/flot.curvedlines/curvedLines.js') }}"></script>
     <!-- DateJS -->
-    <script src="plantilla/vendors/DateJS/build/date.js"></script>
+    <script src="{{ asset('plantilla/vendors/DateJS/build/date.js') }}"></script>
     <!-- JQVMap -->
-    <script src="plantilla/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="plantilla/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="plantilla/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="{{ asset('plantilla/vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="plantilla/vendors/moment/min/moment.min.js"></script>
-    <script src="plantilla/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="{{ asset('plantilla/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('plantilla/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="plantilla/build/js/custom.min.js"></script>
-	
+    <script src="{{ asset('plantilla/build/js/custom.min.js') }}"></script>
+    <!-- validator -->
+    <script src="{{ asset('plantilla/vendors/validator/validator.js') }}"></script>
   </body>
 </html>

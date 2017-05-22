@@ -11,13 +11,15 @@ class PrestamosController extends Controller
 {
     public function solicitar()
     {
-        return view('prestamo.solicitar');
+        $ruta=AdminController::index();
+        return view('prestamo.solicitar',compact('ruta'));
     }
 
     public function autorizar()
     {
         $prestamos=Prestamo::all();
-        return view('prestamo.autorizar',compact('prestamos'));
+        $ruta=AdminController::index();
+        return view('prestamo.autorizar',compact('prestamos','ruta'));
     }
 
     public function guardar(Request $datos)

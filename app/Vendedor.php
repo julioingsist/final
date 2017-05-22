@@ -21,8 +21,8 @@ class Vendedor extends Model
         $vendedor->numero_exterior=$datos->input('numero_interior');
         $vendedor->colonia=$datos->input('colonia');
         $vendedor->ciudad=$datos->input('ciudad');
-        $vendedor->municipio_id->input('municipio');
-        $vendedor->estado_id->input('estado');
+        $vendedor->municipio->input('municipio');
+        $vendedor->estado->input('estado');
         $vendedor->foto=$datos->input('foto');
         $vendedor->usuario_id->$usuario->id;
         $vendedor->save();
