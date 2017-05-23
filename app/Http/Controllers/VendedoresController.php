@@ -25,7 +25,7 @@ class VendedoresController extends Controller
         $validator=RegisterController::validator($datos->all());
         if ($validator->fails())
         {
-            Session::flash('mensaje', $validator->getMessageBag());
+            Session::flash('mensaje_error', $validator->getMessageBag());
             return back();
         }     
         $array=Vendedor::guardar($datos);

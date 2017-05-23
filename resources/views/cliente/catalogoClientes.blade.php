@@ -21,16 +21,13 @@
                             <th class="column-title">Id </th>
                             <th class="column-title">Nombre Completo </th>
                             <th class="column-title">Fecha de Nacimiento </th>
+                            <th class="column-title">Teléfono </th>
                             <th class="column-title">Status </th>
                             <th class="column-title">Estado Civil </th>
-                            <th class="column-title no-link last"><span class="nobr">Acción</span>
-                            </th>
-                            <th class="bulk-actions" colspan="7">
-                              <a class="antoo" style="color:#fff; font-weight:500;">Acciones ( <span class="action-cnt">
-                               </span> ) <i class="fa fa-chevron-down">
-                                
-                              </i></a>
-                            </th>
+                            @if (Auth::user()->tipo==2)    
+                              <th class="column-title no-link last"><span class="nobr">Acción</span>
+                              </th>
+                            @endif 
                           </tr>
                         </thead>
                         <tbody>
@@ -39,17 +36,20 @@
                             <td class=" ">{{ $c->id }}</td>
                             <td class=" ">{{ $c->usuario }}</td>
                             <td class=" ">{{ $c->fecha_nacimiento }}</td>
-                            <td class=" ">{{ $c->estatus }}</td>
+                            <td class=" ">{{ $c->telefono }}</td>
+                            <td class=" ">@if ($c->estatus==1) Activo @else Inactivo @endif  </td>
                             <td class=" ">{{ $c->estado_civil }}</td>
-                            <td>
-                            @if ($c->estatus==0)
-                                <a href="{{ url('/cliente/habilitar/{id}') }}" type="button" class="btn btn-xs btn-success">Habilitar
-                                </a>
-                            @else    
-                                <a href="{{ url('/prestamo/deshabilitar/{id}') }}" type="button" class="btn btn-xs btn-danger" >Deshabilitar
-                                </a>
+                            @if (Auth::user()->tipo==2)  
+                              <td>  
+                                @if ($c->estatus==0)
+                                  <a href="{{ url('/cliente/habilitar/{id}') }}" type="button" class="btn btn-xs btn-success">Habilitar
+                                  </a>
+                                @else    
+                                  <a href="{{ url('/cliente/deshabilitar/{id}') }}" type="button" class="btn btn-xs btn-danger" >Deshabilitar
+                                  </a>
+                                @endif
+                              </td>    
                             @endif    
-                            </td>
                           </tr>
                          @endforeach 
                         </tbody>

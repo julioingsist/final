@@ -25,6 +25,7 @@ class PrestamosController extends Controller
     public function guardar(Request $datos)
     {
         $prestamo=Prestamo::guardar($datos);
+        Session::flash('mensaje', 'Se ha guardado la solicitud con folio '.$prestamo->id.' exitosamente.');
         return back();
     }
 

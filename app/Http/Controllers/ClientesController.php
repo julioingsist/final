@@ -20,7 +20,7 @@ class ClientesController extends Controller
     	$validator=RegisterController::validator($datos->all());
         if ($validator->fails())
         {
-            Session::flash('mensaje', $validator->getMessageBag());
+            Session::flash('mensaje_error', $validator->getMessageBag());
             return back();
         }     
         $array=Cliente::guardar($datos);
@@ -46,5 +46,10 @@ class ClientesController extends Controller
         $ruta=AdminController::index();
         $clientes=Cliente::consultar(); 
         return view('cliente.catalogoClientes', compact('clientes','ruta'));
+    }
+
+    public function habilitar($id)
+    {
+
     }
 }

@@ -28,6 +28,10 @@
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('plantilla/build/css/custom.min.css') }}" rel="stylesheet">
+    
+    <!-- Custom User Style  -->
+    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
+    
   </head>
 
   <body class="nav-md">

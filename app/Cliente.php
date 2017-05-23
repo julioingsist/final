@@ -63,7 +63,8 @@ class Cliente extends Model
         if ($usuario->tipo == Cliente::ADMIN){
             $clientes=DB::table('clientes')
             ->join('users', 'clientes.usuario_id', '=', 'users.id')
-            ->select('users.usuario', 'users.email','clientes.*')
+            ->join('estados_civiles','clientes.estado_civil_id','=','estados_civiles.id')
+            ->select('users.usuario', 'users.email','clientes.*','estados_civiles.nombre as estado_civil')
             ->get();
         }
         else{
@@ -71,7 +72,8 @@ class Cliente extends Model
             $clientes=DB::table('clientes')
             ->join('users', 'clientes.usuario_id', '=', 'users.id')
             ->join('vendedores', 'clientes.vendedor_id', '=', 'vendedores.id')
-            ->select('users.usuario', 'users.email','clientes.*')
+            ->join('estados_civiles','clientes.estado_civil_id','=','estados_civiles.id')
+            ->select('users.usuario', 'users.email','clientes.*','estados_civiles.nombre as estado_civil')
             ->where('vendedores.id', '=', $vendedor->id)
             ->get();
         }

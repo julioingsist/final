@@ -26,4 +26,9 @@ Route::get('/vendedor/registrar','VendedoresController@registrar');
 Route::post('/vendedor/guardar','VendedoresController@guardar');
 Route::get('/cliente/registrar','ClientesController@registrar');
 Route::post('/cliente/guardar','ClientesController@guardar');
+Route::post('/cliente/habilitar/{id}','ClientesController@habilitar');
+Route::post('/cliente/deshabilitar/{id}','ClientesController@habilitar');
+
+
+
 

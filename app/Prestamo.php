@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Auth;
-use App\Cliente;
+use Illuminate\Http\Request;
+use DateTime;
 use Illuminate\Support\Facades\DB;
+use App\Cliente;
 
 class Prestamo extends Model
 {
@@ -26,24 +27,48 @@ class Prestamo extends Model
         return $prestamos;    
     }
 
+    public static function guardarArchivo($archivo,$nombre)
+    {
+        $ruta=storage_path();
+        $archivo->move($ruta, $nombre);
+    }
+
+    public static function quitarAcentos($string)
+    {
+        return strtr($string,'àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ',
+                     'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+    }
+
     public static function guardar(Request $datos)
     {
-        $cliente=Cliente::where('usuario_id',Auth()->user()->id);
+        $comprobante_domicilio = $datos->file('comprobante_domicilio');
+        $nombre_comprobante_domicilio = $comprobante_domicilio->getClientOriginalName();
+        $nombre_comprobante_domicilio = Prestamo::quitarAcentos($nombre_comprobante_domicilio);
+        $identificacion_oficial = $datos->file('comprobante_domicilio');
+        $nombre_identificacion_oficial = $identificacion_oficial->getClientOriginalName();
+        $nombre_identificacion_oficial = Prestamo::quitarAcentos($nombre_identificacion_oficial);
+        $cliente=Cliente::where('usuario_id', Auth()->user()->id)->first();
         $prestamo=new Prestamo();
-    	$prestamo->estatus=ESTATUS_POR_AUTORIZAR;
+        $fecha = new DateTime();
+        $prestamo->fecha=$fecha->format('Y-m-d H:i:s');
+    	$prestamo->estatus=Prestamo::ESTATUS_POR_AUTORIZAR;
     	$prestamo->cliente_id=$cliente->id;
+        $prestamo->comprobante_domicilio=$nombre_comprobante_domicilio;
+        $prestamo->identificacion_oficial=$nombre_identificacion_oficial;
+        $prestamo->ingreso_mensual=$datos->input('ingreso_mensual');
     	$prestamo->importe_solicitado=$datos->input('importe');
     	$prestamo->importe_autorizado=0;
-    	$prestamo->interes=($prestamo->importe_autorizado)*(PORCENTAJE_INTERES/100);
+    	$prestamo->interes=($prestamo->importe_autorizado)*(Prestamo::PORCENTAJE_INTERES/100);
     	$prestamo->total=($prestamo->importe_autorizado)+($prestamo->interes);
     	$prestamo->saldo=$prestamo->total;
         $prestamo->save();
+        return $prestamo;
     }
 
     public static function autorizarPrestamo($id)
     {
         $prestamo=Prestamo::find($id);
-        $prestamo->estatus=ESTATUS_AUTORIZADO;
+        $prestamo->estatus=Prestamo::ESTATUS_AUTORIZADO;
         $prestamo->importe_autorizado=$prestamo->importe_solicitado;
         $prestamo->save();   
     }
@@ -51,7 +76,9 @@ class Prestamo extends Model
     public static function rechazarPrestamo($id)
     {
         $prestamo=Prestamo::find($id);
-        $prestamo->estatus=ESTATUS_RECHAZADO;
+        $prestamo->estatus=Prestamo::ESTATUS_RECHAZADO;
         $prestamo->save();   
     }
+
+    
 }
