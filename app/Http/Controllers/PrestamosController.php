@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Prestamo;
 use App\Cliente;
 use Auth;
+use Session;
 
 class PrestamosController extends Controller
 {
@@ -32,6 +33,14 @@ class PrestamosController extends Controller
     public function autorizarPrestamo($id)
     {
         $prestamo=Prestamo::autorizarPrestamo($id);
+        Session::flash('mensaje','Se ha autorizado el prestamo con folio: '.$prestamo->id);
+        return back();
+    }
+
+    public function rechazarPrestamo($id)
+    {
+        $prestamo=Prestamo::rechazarPrestamo($id);
+        Session::flash('mensaje','Se ha rechazado el prestamo con folio: '.$prestamo->id);
         return back();
     }
 }

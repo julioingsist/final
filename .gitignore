@@ -9,3 +9,9 @@ Homestead.yaml
 .env
 *.tmp
 ~*
+*.txt
+*.doc
+*.docx
+*.pdf
+*.jpg
+*.png

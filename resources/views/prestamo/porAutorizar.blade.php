@@ -8,7 +8,13 @@
                     <h2>Autorización de Préstamos </h2>
                     <div class="clearfix"></div>
                   </div>
-
+                  @if(Session::has('mensaje'))
+                    <div class="panel_mensajes">
+                      <h2 class="mensajes"> 
+                          {{Session::get('mensaje')}}
+                      </h2>
+                    </div>            
+                  @endif  
                   <div class="x_content">
                     <div class="table-responsive">
                       <table class="table table-striped jambo_table bulk_action">
@@ -17,7 +23,6 @@
                             <th class="column-title">Id </th>
                             <th class="column-title">Fecha </th>
                             <th class="column-title">Cliente </th>
-                            <th class="column-title">Status </th>
                             <th class="column-title">Importe </th>
                             <th class="column-title no-link last"><span class="nobr">Acción</span>
                             </th>
@@ -36,12 +41,11 @@
                             <td class=" ">{{ $p->id }}</td>
                             <td class=" ">{{ $p->fecha }}</td>
                             <td class=" ">{{ $p->cliente }}</td>
-                            <td class=" ">{{ $p->status }}</td>
                             <td class=" ">{{ $p->importe_solicitado }}</td>
                             <td>
-                								<a href="{{ url('/prestamo/autorizarPrestamo/{id}') }}" type="button" class="btn btn-xs btn-success">Autorizar
+                								<a href="{{ url('/prestamo/autorizarPrestamo')}}/{{$p->id }}" type="button" class="btn btn-xs btn-success">Autorizar
                 								</a>
-                								<a href="{{ url('/prestamo/rechazar/{id}') }}" type="button" class="btn btn-xs btn-danger" >Rechazar
+                								<a href="{{ url('/prestamo/rechazarPrestamo')}}/{{$p->id }}" type="button" class="btn btn-xs btn-danger" >Rechazar
                 								</a>
                 						</td>
                           </tr>

@@ -22,7 +22,9 @@ class Prestamo extends Model
         $prestamos=DB::table('prestamos')
             ->join('clientes', 'prestamos.cliente_id', '=', 'clientes.id')
             ->join('vendedores', 'clientes.vendedor_id', '=', 'vendedores.id')
+            ->select('prestamos.*','clientes.nombre as cliente')
             ->where('vendedores.id', '=', $vendedor->id)
+            ->where('prestamos.estatus','=', self::ESTATUS_POR_AUTORIZAR)
             ->paginate(10);
         return $prestamos;    
     }
@@ -44,7 +46,7 @@ class Prestamo extends Model
         $comprobante_domicilio = $datos->file('comprobante_domicilio');
         $nombre_comprobante_domicilio = $comprobante_domicilio->getClientOriginalName();
         $nombre_comprobante_domicilio = Prestamo::quitarAcentos($nombre_comprobante_domicilio);
-        $identificacion_oficial = $datos->file('comprobante_domicilio');
+        $identificacion_oficial = $datos->file('identificacion_oficial');
         $nombre_identificacion_oficial = $identificacion_oficial->getClientOriginalName();
         $nombre_identificacion_oficial = Prestamo::quitarAcentos($nombre_identificacion_oficial);
         $cliente=Cliente::where('usuario_id', Auth()->user()->id)->first();
@@ -62,6 +64,9 @@ class Prestamo extends Model
     	$prestamo->total=($prestamo->importe_autorizado)+($prestamo->interes);
     	$prestamo->saldo=$prestamo->total;
         $prestamo->save();
+        self::guardarArchivo($comprobante_domicilio,$nombre_comprobante_domicilio);
+        self::guardarArchivo($identificacion_oficial,$nombre_identificacion_oficial);
+
         return $prestamo;
     }
 
@@ -71,6 +76,7 @@ class Prestamo extends Model
         $prestamo->estatus=Prestamo::ESTATUS_AUTORIZADO;
         $prestamo->importe_autorizado=$prestamo->importe_solicitado;
         $prestamo->save();   
+        return $prestamo;
     }
 
     public static function rechazarPrestamo($id)
@@ -78,6 +84,7 @@ class Prestamo extends Model
         $prestamo=Prestamo::find($id);
         $prestamo->estatus=Prestamo::ESTATUS_RECHAZADO;
         $prestamo->save();   
+        return $prestamo;
     }
 
     
