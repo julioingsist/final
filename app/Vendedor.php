@@ -59,4 +59,20 @@ class Vendedor extends Model
             ->get();
         return $vendedores;
     }
+
+    public static function habilitar($id)
+    {
+        $vendedor=Vendedor::find($id);
+        $vendedor->estatus=self::ESTATUS_ACTIVO;
+        $vendedor->save();
+        return $vendedor;
+    }
+
+    public static function deshabilitar($id)
+    {
+        $vendedor=Vendedor::find($id);
+        $vendedor->estatus=self::ESTATUS_INACTIVO;
+        $vendedor->save();
+        return $vendedor;
+    }
 }

@@ -20,7 +20,7 @@ class VendedoresController extends Controller
         return view('vendedor.editar');
     }
 
-    public static function guardar(Request $datos)
+    public function guardar(Request $datos)
     { 
         $validator=RegisterController::validator($datos->all());
         if ($validator->fails())
@@ -35,16 +35,28 @@ class VendedoresController extends Controller
         return back();
     }
 
-    public static function actualizar(Request $datos,$id)
+    public function actualizar(Request $datos,$id)
     {
         $vendedor=Vendedor::actualizar($datos,$id);
         return back();
     }
 
-    public static function consultarVendedores()
+    public function consultarVendedores()
     {
         $ruta=AdminController::index();
         $vendedores=Vendedor::consultar();
         return view('vendedor.catalogoVendedores',compact('ruta','vendedores'));    
+    }
+
+    public function habilitar($id)
+    {
+        $vendedor=Vendedor::habilitar($id);
+        return back();
+    }
+
+    public function deshabilitar($id)
+    {
+        $vendedor=Vendedor::deshabilitar($id);
+        return back();
     }
 }

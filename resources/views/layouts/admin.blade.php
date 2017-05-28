@@ -84,7 +84,7 @@
                       @endif
                       @if (Auth::user()->tipo==2)                        
                         <li><a href="{{ url('/prestamo/autorizar') }}">Autorizar Préstamo</a></li>
-                        <li><a href="{{ url('/home') }}">Registrar Abono</a></li>
+                        <li><a href="{{ url('/abono/registrar') }}">Registrar Abono</a></li>
                       @endif    
                     </ul>
                   </li>

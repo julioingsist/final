@@ -15,6 +15,8 @@ class Cliente extends Model
     CONST ADMIN = 1;
     CONST VENDEDOR = 2;
     CONST CLIENTE = 3;
+    CONST ESTATUS_ACTIVO = 1;
+    CONST ESTATUS_INACTIVO = 0;
 
     public static function guardar(Request $datos)
     {
@@ -28,7 +30,7 @@ class Cliente extends Model
         $cliente->apellido_materno=$datos->input('apellido_materno');
         $cliente->usuario_id=$usuario->id;
         $fecha = new DateTime();
-        $cliente->estatus=Vendedor::ESTATUS_ACTIVO;    
+        $cliente->estatus=self::ESTATUS_ACTIVO;    
         $cliente->created_at=$fecha->format('Y-m-d H:i:s');
         $cliente->updated_at=$fecha->format('Y-m-d H:i:s');
         $cliente->estado_civil_id=1;
@@ -60,7 +62,7 @@ class Cliente extends Model
     public static function consultar()
     {
         $usuario=auth()->user();
-        if ($usuario->tipo == Cliente::ADMIN){
+        if ($usuario->tipo == self::ADMIN){
             $clientes=DB::table('clientes')
             ->join('users', 'clientes.usuario_id', '=', 'users.id')
             ->join('estados_civiles','clientes.estado_civil_id','=','estados_civiles.id')
@@ -78,5 +80,21 @@ class Cliente extends Model
             ->get();
         }
         return $clientes;
+    }
+
+    public static function habilitar($id)
+    {
+        $cliente=Cliente::find($id);
+        $cliente->estatus=self::ESTATUS_ACTIVO;
+        $cliente->save();
+        return $cliente; 
+    }
+
+    public static function deshabilitar($id)
+    {
+        $cliente=Cliente::find($id);
+        $cliente->estatus=self::ESTATUS_INACTIVO;
+        $cliente->save();
+        return $cliente; 
     }
 }

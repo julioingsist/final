@@ -42,10 +42,10 @@
                             @if (Auth::user()->tipo==2)  
                               <td>  
                                 @if ($c->estatus==0)
-                                  <a href="{{ url('/cliente/habilitar/{id}') }}" type="button" class="btn btn-xs btn-success">Habilitar
+                                  <a href="{{ url('/cliente/habilitar')}}/{{ $c->id }}" type="button" class="btn btn-xs btn-success">Habilitar
                                   </a>
                                 @else    
-                                  <a href="{{ url('/cliente/deshabilitar/{id}') }}" type="button" class="btn btn-xs btn-danger" >Deshabilitar
+                                  <a href="{{ url('/cliente/deshabilitar')}}/{{ $c->id }}" type="button" class="btn btn-xs btn-danger" >Deshabilitar
                                   </a>
                                 @endif
                               </td>    

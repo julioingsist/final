@@ -50,6 +50,13 @@ class ClientesController extends Controller
 
     public function habilitar($id)
     {
+        $cliente=Cliente::habilitar($id);
+        return back(); 
+    }
 
+    public function deshabilitar($id)
+    {
+        $cliente=Cliente::deshabilitar($id);
+        return back(); 
     }
 }

@@ -14,20 +14,32 @@ Auth::routes();
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/','WelcomeController@index');
 Route::get('/home','HomeController@home');
+
+//Prestamos
 Route::get('/prestamo/solicitar','PrestamosController@solicitar');
 Route::get('/prestamo/autorizar','PrestamosController@autorizar');
 Route::post('/prestamo/guardar','PrestamosController@guardar');
 Route::get('/prestamo/autorizarPrestamo/{id}','PrestamosController@autorizarPrestamo');
 Route::get('/prestamo/rechazarPrestamo/{id}','PrestamosController@rechazarPrestamo');
-Route::get('/admin','AdminController@index');
-Route::get('/consultarClientes','ClientesController@consultarClientes');
+
+//Vendedores
 Route::get('/consultarVendedores','VendedoresController@consultarVendedores');
 Route::get('/vendedor/registrar','VendedoresController@registrar');
 Route::post('/vendedor/guardar','VendedoresController@guardar');
+Route::get('/vendedor/habilitar/{id}','VendedoresController@habilitar');
+Route::get('/vendedor/deshabilitar/{id}','VendedoresController@deshabilitar');
+
+//Clientes
+Route::get('/consultarClientes','ClientesController@consultarClientes');
 Route::get('/cliente/registrar','ClientesController@registrar');
 Route::post('/cliente/guardar','ClientesController@guardar');
-Route::post('/cliente/habilitar/{id}','ClientesController@habilitar');
-Route::post('/cliente/deshabilitar/{id}','ClientesController@habilitar');
+Route::get('/cliente/habilitar/{id}','ClientesController@habilitar');
+Route::get('/cliente/deshabilitar/{id}','ClientesController@deshabilitar');
+
+//Abonos
+Route::get('/abono/registrar','AbonosController@registrar');
+Route::get('/abono/guardar','AbonosController@guardar');
+
 
 
 

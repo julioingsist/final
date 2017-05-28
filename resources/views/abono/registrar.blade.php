@@ -5,21 +5,26 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Catálogo de Vendedores  <a href="{{ url('/vendedor/registrar') }}" type="button" class="btn btn-xs btn-primary">Nuevo
-                                </a></h2> 
-
+                    <h2>Registro de Abonos </h2>
                     <div class="clearfix"></div>
                   </div>
+                  @if(Session::has('mensaje'))
+                    <div class="panel_mensajes">
+                      <h2 class="mensajes"> 
+                          {{Session::get('mensaje')}}
+                      </h2>
+                    </div>            
+                  @endif  
                   <div class="x_content">
                     <div class="table-responsive">
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">ID</th>
-                            <th class="column-title">Nombre Completo</th>
-                            <th class="column-title">Correo Electrónico</th>
-                            <th class="column-title">Estatus</th>
-                            <th class="column-title">Teléfono</th>
+                            <th class="column-title">Id </th>
+                            <th class="column-title">Fecha </th>
+                            <th class="column-title">Cliente </th>
+                            <th class="column-title">Total </th>
+                            <th class="column-title">Saldo </th>
                             <th class="column-title no-link last"><span class="nobr">Acción</span>
                             </th>
                             <th class="bulk-actions" colspan="7">
@@ -32,21 +37,16 @@
                         </thead>
 
                         <tbody>
-                        @foreach($vendedores as $v)
+                        @foreach($prestamos as $p)
                           <tr class="even pointer">
-                            <td class=" ">{{ $v->id }}</td>
-                            <td class=" ">{{ $v->usuario  }}</td>
-                            <td class=" ">{{ $v->email }}</td>
-                            <td class=" ">@if ($v->estatus==1) Activo @else Inactivo @endif  </td>
-                            <td class=" ">{{ $v->telefono }}</td>
+                            <td class=" ">{{ $p->id }}</td>
+                            <td class=" ">{{ $p->fecha }}</td>
+                            <td class=" ">{{ $p->cliente }}</td>
+                            <td class=" ">{{ $p->total }}</td>
+                            <td class=" ">{{ $p->saldo }}</td>
                             <td>
-                            @if ($v->estatus==0)
-                                <a href="{{ url('/vendedor/habilitar')}}/{{$v->id}}" type="button" class="btn btn-xs btn-success">Habilitar
+                                <a href="{{ url('/abono/registrarAbono')}}/{{$p->id }}" type="button" class="btn btn-xs btn-success">Registrar Abono
                                 </a>
-                            @else    
-                                <a href="{{ url('/vendedor/deshabilitar')}}/{{$v->id}}" type="button" class="btn btn-xs btn-danger" >Deshabilitar
-                                </a>
-                            @endif
                             </td>
                           </tr>
                          @endforeach 

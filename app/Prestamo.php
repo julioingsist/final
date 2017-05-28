@@ -60,13 +60,12 @@ class Prestamo extends Model
         $prestamo->ingreso_mensual=$datos->input('ingreso_mensual');
     	$prestamo->importe_solicitado=$datos->input('importe');
     	$prestamo->importe_autorizado=0;
-    	$prestamo->interes=($prestamo->importe_autorizado)*(Prestamo::PORCENTAJE_INTERES/100);
-    	$prestamo->total=($prestamo->importe_autorizado)+($prestamo->interes);
+    	$prestamo->interes=($prestamo->importe_solicitado)*(Prestamo::PORCENTAJE_INTERES/100);
+    	$prestamo->total=($prestamo->importe_solicitado)+($prestamo->interes);
     	$prestamo->saldo=$prestamo->total;
         $prestamo->save();
         self::guardarArchivo($comprobante_domicilio,$nombre_comprobante_domicilio);
         self::guardarArchivo($identificacion_oficial,$nombre_identificacion_oficial);
-
         return $prestamo;
     }
 
@@ -87,5 +86,11 @@ class Prestamo extends Model
         return $prestamo;
     }
 
-    
+    public static function actualizarSaldo(Request $datos,$prestamo_id)
+    {
+        $prestamo=Prestamo::find($prestamo_id);
+        $prestamo->saldo=($prestamo->saldo)-$datos->input('importe');
+        $prestamo->save();
+        return $prestamo;
+    }
 }

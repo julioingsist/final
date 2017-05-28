@@ -10,19 +10,16 @@ class AbonosController extends Controller
 {
 	public function registrar()
     {
-    	return view('abono.registrar');
+    	$ruta=AdminController::index();
+    	$prestamos=Abono::consultarPrestamos();
+    	return view('abono.registrar',compact('ruta','prestamos'));
     }
 
     public function guardar(Request $datos, $prestamo_id)
     {
-    	$prestamo=Prestamo::guardar($datos,$prestamo_id);
-		$abono->cliente_id->$prestamo->cliente_id;	    			
-		$abono->importe_capital=$datos->input('importe');
-		$abono->importe_intereses=$datos->input('importe');	
-		$abono->save();
-		$saldo=$prestamo->saldo;
-		$prestamo->saldo->$saldo-$datos('importe');
-		$prestamo->save();
+    	$prestamo=Prestamo::actualizarSaldo($datos,$prestamo_id);
+    	$abono=Abono::guardar($datos);
+    	Session::flash('mensaje','Se ha guardado el abono con folio: '.$abono->id);
 		return back();
     }
 }
