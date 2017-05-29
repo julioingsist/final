@@ -18,7 +18,7 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">Id </th>
+                            <th class="column-title">ID </th>
                             <th class="column-title">Nombre Completo </th>
                             <th class="column-title">Fecha de Nacimiento </th>
                             <th class="column-title">Teléfono </th>

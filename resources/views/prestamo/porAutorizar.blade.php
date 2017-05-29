@@ -20,7 +20,7 @@
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
-                            <th class="column-title">Id </th>
+                            <th class="column-title">Folio </th>
                             <th class="column-title">Fecha </th>
                             <th class="column-title">Cliente </th>
                             <th class="column-title">Importe </th>

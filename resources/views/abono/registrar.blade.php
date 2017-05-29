@@ -45,7 +45,7 @@
                             <td class=" ">{{ $p->total }}</td>
                             <td class=" ">{{ $p->saldo }}</td>
                             <td>
-                                <a href="{{ url('/abono/registrarAbono')}}/{{$p->id }}" type="button" class="btn btn-xs btn-success">Registrar Abono
+                                <a href="{{ url('/abono/registrar')}}" type="button" class="btn btn-xs btn-success">Registrar Abono
                                 </a>
                             </td>
                           </tr>

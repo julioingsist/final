@@ -18,7 +18,7 @@ class CreateVendedoresTable extends Migration
             $table->increments('id');
             $table->string('nombre', 30);
             $table->string('apellido_paterno', 30);
-            $table->string('apellido_materno', 30)->default('');
+            $table->string('apellido_materno', 30)->nullable();
             $table->datetime('fecha_nacimiento')->default('1970-01-01 00:00:00');
             $table->string('calle')->default('');
             $table->string('numero_exterior')->default('');
