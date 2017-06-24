@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    CONST ADMIN = 1;
+    CONST VENDEDOR = 2;
+    CONST CLIENTE = 3;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -46,10 +49,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public static function validator(array $data)
     {
         return Validator::make($data, [
-            'usuario' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
         ]);
     }
@@ -60,19 +62,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    public static function create(array $data)
     {
-        if (auth()->user()->tipo == 1){
-            $tipo = 2;
+        if (auth()->user()->tipo == RegisterController::ADMIN){
+            $tipo = RegisterController::VENDEDOR;
         }
         else {
-            $tipo = 3;
+            $tipo = RegisterController::CLIENTE;
         }    
-      
+        
         return User::create([
-            'usuario' => $data['usuario'],
+            'usuario' => $data['nombre']." ".$data['apellido_paterno']." ".$data['apellido_materno'] ,
             'email' => $data['email'],
-            'password' => Hash::make(str_random(8)),
+            'password' => bcrypt($data['password']),
             'tipo' => $tipo,
         ]);
     }

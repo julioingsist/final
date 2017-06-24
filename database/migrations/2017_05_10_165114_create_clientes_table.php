@@ -18,23 +18,24 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('nombre', 30);
             $table->string('apellido_paterno', 30);
-            $table->string('apellido_materno', 30);
-            $table->datetime('fecha_nacimiento');
-            $table->string('calle');
-            $table->string('numero_exterior');
-            $table->string('numero_interior')->nullable();
+            $table->string('apellido_materno', 30)->nullable();
+            $table->datetime('fecha_nacimiento')->default('1970-01-01 00:00:00');
+            $table->string('calle')->default('');
+            $table->string('numero_exterior')->default('');
+            $table->string('numero_interior')->default('');
+            $table->string('telefono', 10)->default('');
             $table->string('colonia')->default('');
             $table->string('ciudad')->default('');
-            $table->integer('municipio_id')->unsigned();;
-            $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('restrict');
-            $table->integer('estado_id')->unsigned();
-            $table->foreign('estado_id')->references('id')->on('estados')->onDelete('restrict');
-            $table->string('foto')->nullable();
+            $table->string('municipio')->default('');
+            $table->string('estado')->default('');
+            $table->string('foto')->default('');
             $table->integer('estado_civil_id')->unsigned();
             $table->foreign('estado_civil_id')->references('id')->on('estados_civiles')->onDelete('restrict');
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('users')->onDelete('restrict');
-            $table->rememberToken();
+            $table->integer('vendedor_id')->unsigned();
+            $table->foreign('vendedor_id')->references('id')->on('vendedores')->onDelete('restrict');
+            $table->integer('estatus');
             $table->timestamps();
         });
     }
@@ -42,7 +43,7 @@ class CreateClientesTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return void
+     * @return voidn
      */
     public function down()
     {

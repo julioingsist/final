@@ -6,25 +6,41 @@ use Illuminate\Http\Request;
 use App\Prestamo;
 use App\Cliente;
 use Auth;
+use Session;
 
 class PrestamosController extends Controller
 {
     public function solicitar()
     {
-    	return view('prestamo.solicitar');
+        $ruta=AdminController::index();
+        return view('prestamo.solicitar',compact('ruta'));
     }
 
-    public function guardarSolicitud(Request $datos)
+    public function autorizar()
     {
-    	$cliente=Cliente::where('usuario_id',auth()->user()->id);
-    	$prestamo=new Prestamo();
-    	$prestamo->estatus=1;
-    	$prestamo->cliente_id=$cliente->id;
-    	$prestamo->importe_solicitado=$datos->input('importe');
-    	$prestamo->importe_autorizado=0;
-    	$prestamo->tipo=$datos->$datos->input('tipo_interes');
-    	$prestamo->interes=0;
-    	$prestamo->total=$datos->$datos->input('importe');
-    	$prestamo->saldo=$datos->$datos->input('importe');
+        $prestamos=Prestamo::autorizar();
+        $ruta=AdminController::index();
+        return view('prestamo.porAutorizar',compact('prestamos','ruta'));
+    }
+
+    public function guardar(Request $datos)
+    {
+        $prestamo=Prestamo::guardar($datos);
+        Session::flash('mensaje', 'Se ha guardado la solicitud con folio '.$prestamo->id.' exitosamente.');
+        return back();
+    }
+
+    public function autorizarPrestamo($id)
+    {
+        $prestamo=Prestamo::autorizarPrestamo($id);
+        Session::flash('mensaje','Se ha autorizado el prestamo con folio: '.$prestamo->id);
+        return back();
+    }
+
+    public function rechazarPrestamo($id)
+    {
+        $prestamo=Prestamo::rechazarPrestamo($id);
+        Session::flash('mensaje','Se ha rechazado el prestamo con folio: '.$prestamo->id);
+        return back();
     }
 }

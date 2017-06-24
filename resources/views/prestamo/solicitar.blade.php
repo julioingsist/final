@@ -1,66 +1,64 @@
-@extends('layouts.app')
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Solicitud de Préstamo</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data"> {{ csrf_field() }}
+@extends('layouts.admin')
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="cantidad" class="col-md-4 control-label">Cantidad a solicitar</label>
-                            <div class="col-md-6">
-                                <input id="importe" type="number" class="form-control" name="importe" value="" required autofocus>
-                            </div>
+@section('contenido')
+<div class="">
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                  @if(Session::has('mensaje'))
+                    <div class="panel_mensajes">
+                      <h2 class="mensajes"> 
+                          {{Session::get('mensaje')}}
+                      </h2>
+                    </div>            
+                  @endif
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Solicitud de Préstamo </h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <form class="form-horizontal form-label-left" novalidate action="{{ url('/prestamo/guardar')}}" method="POST" enctype="multipart/form-data">
+                      {{ csrf_field() }} 
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="importe">Cantidad a solicitar <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="number" id="importe" name="importe" required="required" data-validate-minmax="1000,20000" class="form-control col-md-7 col-xs-12">
                         </div>
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="comprobante_domicilio" class="col-md-4 control-label">Comprobante de domicilio</label>
-                            <div class="col-md-6">
-                                <input id="comprobante" type="file" class="form-control" name="comprobante" value="" required>
-                            </div>
-                        </div>                            
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="ingreso_mensual" class="col-md-4 control-label">Ingreso Mensual</label>
-                            <div class="col-md-6">
-                                <input id="ingreso_mensual" type="number" class="form-control" name="importe" value="" required>
-                            </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ingreso_mensual">Ingreso mensual <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="number" id="ingreso_mensual" name="ingreso_mensual" required="required" data-validate-minmax="1000,100000" class="form-control col-md-7 col-xs-12">
                         </div>
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="comprobante_ingresos" class="col-md-4 control-label">Comprobante de ingresos</label>
-                            <div class="col-md-6">
-                                <input id="comprobante_ingresos" type="file" class="form-control" name="comprobante_ingresos" value="">
-                            </div>
-                        </div>                                
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="comprobante_ingresos" class="col-md-4 control-label">Identificación oficial</label>
-                            <div class="col-md-6">
-                                <input id="comprobante_ingresos" type="file" class="form-control" name="comprobante_ingresos" value="">
-                            </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="identificacion_oficial">Identificación oficial <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="identificacion_oficial" name="identificacion_oficial" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="tipo_interes" class="col-md-4 control-label">Tipo de Interés</label>
-                            <div class="col-md-6">
-                                <select name="tipo_interes" class="form-control" >
-                                    <option value="1">Fijo</option>
-                                    <option value="2">Variable</option>
-                                </select>
-                            </div>
-                        </div>    
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Aceptar
-                                </button>
-                                <a href="{{url('/home')}}" class="btn btn-danger">
-                                    Cancelar
-                                </a>
-                            </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comprobante_domicilio">Comprobante de domicilio <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="comprobante_domicilio" type="file" name="comprobante_domicilio" class="optional form-control col-md-7 col-xs-12" required="required">
                         </div>
+                      </div>
+                     <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button id="send" type="submit" class="btn btn-success">Aceptar</button>
+                          <button type="submit" class="btn btn-danger">Cancelar</button>
+                        </div>
+                      </div>
                     </form>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+          </div>
+@stop

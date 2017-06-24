@@ -18,7 +18,8 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('home');
+        $ruta=AdminController::index();
+        return view('home',compact('ruta'));
     }
     /**
      * Show the application dashboard.

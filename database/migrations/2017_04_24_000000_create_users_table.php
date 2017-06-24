@@ -19,8 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('usuario', 30);
             $table->string('email', 100);
             $table->unique('email');
-            $table->string('password', 100);
+            $table->string('password', 255);
             $table->integer('tipo');
+            $table->timestamps();
             $table->rememberToken();
         });
     }
@@ -32,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        
+               
     }
 }
